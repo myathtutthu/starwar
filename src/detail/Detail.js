@@ -16,7 +16,7 @@ import './movie.css';
 
   render() {
     const movies = this.props.movieDetail;
-    console.log(movies.title);
+    
     return(
       <div className="container">
         <div className="moviePage">
@@ -41,7 +41,9 @@ import './movie.css';
   }
 }
 const mapStateToProps = state => ({
-    movieDetail: state.newMovies.currentMovie
+    movieDetail: state.newMovies.currentMovie,
+    
+
   });
   export default connect(
     mapStateToProps,
