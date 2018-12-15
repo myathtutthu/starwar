@@ -1,0 +1,1 @@
+export const FETCH_NEW_MOVIE = 'FETCH_NEW_MOVIE';
