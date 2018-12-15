@@ -9,7 +9,6 @@ export class Header extends React.Component {
     return(
       <header>
         <h1><img src={logo} alt="Moviee logo" /> Star War Moviee</h1>
-        <Nav />
       </header>
     );
   }
