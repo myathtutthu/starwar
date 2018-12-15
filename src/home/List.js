@@ -12,7 +12,6 @@ class List extends React.Component {
 
   render() {
     const movies = this.props.newMovies;
-    console.log(movies);
     return (
       <section>
         <h2>Starwar Movies Series</h2>
