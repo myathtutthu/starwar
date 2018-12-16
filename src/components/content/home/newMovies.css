@@ -62,3 +62,7 @@
   opacity: 1;
   visibility: visible;
 }
+.button{
+  margin-bottom: 30px;
+  float: right;
+ }

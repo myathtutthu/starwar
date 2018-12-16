@@ -8,10 +8,31 @@ import jsonData from "../../../assets/images";
 
 class List extends React.Component {
   componentWillMount() {
+    this.handleClick = this.handleClick.bind(this);
     this.props.fetchMovies();
+  }
+  handleClick() {
+    let flag = true;
+    if (this.props.sortingType == true) {
+      this.props.fetchMovies(false);
+    } else {
+      this.props.fetchMovies(flag);
+    }
+    console.log("Click happened");
   }
 
   render() {
+    if (this.props.sortingType == true) {
+      this.props.newMovies.sort(function(a, b) {
+        var nameA = a.episode_id,
+          nameB = b.episode_id;
+        if (nameA < nameB)
+          //sort string ascending
+          return -1;
+        if (nameA > nameB) return 1;
+        return 0; //default return value (no sorting)
+      });
+    }
     const moviesOld = this.props.newMovies;
     const movies = [];
     {
@@ -23,7 +44,6 @@ class List extends React.Component {
     }
     console.log(movies);
     const fullyLoaded = this.props.fullyLoaded;
-    console.log(fullyLoaded);
     return (
       <section>
         <div className={fullyLoaded == true ? "hide" : "loading"}>
@@ -33,16 +53,21 @@ class List extends React.Component {
           </div>
         </div>
         <h3>Starwar Movies Series</h3>
-        <span> <Link to={`/cast`} key="cast" className="movieLink">
-        &#160;Cat List&nbsp;
-        </Link>
+        <span>
+          {" "}
+          <Link to={`/cast`} key="cast" className="movieLink">
+            &#160;Cat List&nbsp;
+          </Link>
         </span>
         <span>
-        <Link to={`/starships`} key="starships" className="movieLink">
-        &#160;Starship List&nbsp;
-        </Link>
+          <Link to={`/starships`} key="starships" className="movieLink">
+            &#160;Starship List&nbsp;
+          </Link>
         </span>
-       
+        <div className="button">
+             <button onClick={this.handleClick}>Sort By Episode</button><br/>
+         </div>
+
         <div className="newMovies">
           {movies.map((movie, index) => {
             return (
@@ -64,13 +89,15 @@ class List extends React.Component {
             );
           })}
         </div>
+        
       </section>
     );
   }
 }
 const mapStateToProps = state => ({
   newMovies: state.newMovies.items,
-  fullyLoaded: state.newMovies.fullyLoaded
+  fullyLoaded: state.newMovies.fullyLoaded,
+  sortingType: state.newMovies.sortingType
 });
 export default connect(
   mapStateToProps,

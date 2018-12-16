@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { fetchDetailMovies } from "../../../actions/newDetailMovieAction";
 import { connect } from "react-redux";
 import jsonData from '../../../assets/images';
@@ -29,6 +30,9 @@ import './movie.css';
   }
     return(
       <div className="container">
+      <Link to="/" key="cast" className="movieLink">
+          <p>back to home</p>
+        </Link>
         <div className="moviePage">
           <div className="poster">
             <img src={movies.url} alt='this' className="posterImg" />

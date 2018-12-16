@@ -7,16 +7,17 @@ const initialState = {
     fullyLoaded: false,
     castPage: 1,
     starshipPage: 1,
+    sortingType:false,
 
   };
   export default function(state = initialState, action) {
-    console.log(state.castPage + 'state');
     switch (action.type) {
       case FETCH_NEW_MOVIE:
         return {
           ...state,
           items: action.payload,
-          fullyLoaded : true
+          fullyLoaded : true,
+          sortingType:action.sortingType
         };
         case FETCH_DETAIL_MOVIE:
         return {

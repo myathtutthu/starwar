@@ -89,3 +89,6 @@
     transform: rotate(720deg) scale(0.6);
   }
 }
+.cardBg{
+  background-color: #cecece;
+}
