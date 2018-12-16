@@ -33,9 +33,16 @@ class List extends React.Component {
           </div>
         </div>
         <h3>Starwar Movies Series</h3>
-        <Link to={`/cast`} key="cast" className="movieLink">
-          <p>Cast List</p>
+        <span> <Link to={`/cast`} key="cast" className="movieLink">
+        &#160;Cat List&nbsp;
         </Link>
+        </span>
+        <span>
+        <Link to={`/starships`} key="starships" className="movieLink">
+        &#160;Starship List&nbsp;
+        </Link>
+        </span>
+       
         <div className="newMovies">
           {movies.map((movie, index) => {
             return (

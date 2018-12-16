@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Detail from "../detail/Detail";
 import Cast from "../cast/Cast";
 import List from "./List.js";
+import Starship from "../starship/Starship";
 import "./newMovies.css";
 
 class NewMovies extends React.Component {
@@ -25,6 +26,11 @@ class NewMovies extends React.Component {
             exact
             path="/cast"
             component={props => <Cast {...props} name="castList" />}
+          />
+          <Route
+            exact
+            path="/starships"
+            component={props => <Starship {...props} name="starshipList" />}
           />
         </React.Fragment>
       </Router>
