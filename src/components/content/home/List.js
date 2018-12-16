@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchMovies } from "../../../actions/newMovieActions";
 import "./newMovies.css";
 import "../../../assets/loading.css";
+import jsonData from '../../../assets/images';
 
 class List extends React.Component {
   componentWillMount() {
@@ -39,7 +40,7 @@ class List extends React.Component {
             return (
               <Link to={`/movie/${movies[index].urlID}`} key={index} className="movieLink">
                 <img
-                  src="http://via.placeholder.com/300x450"
+                  src={jsonData.image[index].url}
                   alt={`${movies[index].title} poster`}
                   className="imgResponsive"
                 />

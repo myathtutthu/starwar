@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchDetailMovies } from "../../../actions/newDetailMovieAction";
 import { connect } from "react-redux";
+import jsonData from '../../../assets/images';
 import './movie.css';
 
  class Detail extends React.Component {
@@ -17,12 +18,20 @@ import './movie.css';
 
   render() {
     const movies = this.props.movieDetail;
-    
+    for(var i = 0; i < jsonData.image.length; i++) {
+      var name = jsonData.image[i].name;
+      if(name === movies.title)
+      {
+          movies.url=jsonData.image[i].url;
+          console.log(movies.title+" Data:"+jsonData.image[i].name);
+      }
+
+  }
     return(
       <div className="container">
         <div className="moviePage">
           <div className="poster">
-            <img src="http://via.placeholder.com/300x450" alt='this' className="posterImg" />
+            <img src={movies.url} alt='this' className="posterImg" />
           </div>
 
           <section className="movieDetails">
