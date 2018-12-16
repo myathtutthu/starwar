@@ -3,7 +3,7 @@ const jsonResponse = {
                 "image": [
                     {
                         "id":1,
-                        "name": "A NEW HOPE",
+                        "name": "A New Hope",
                         "url": "https://images-na.ssl-images-amazon.com/images/I/61zAtWHeXLL._SL1000_.jpg"
                     },
                     {
@@ -13,7 +13,7 @@ const jsonResponse = {
                     },
                     {
                         "id":3,
-                        "name": "The PhanTom Menace",
+                        "name": "The Phantom Menace",
                         "url": "https://vignette.wikia.nocookie.net/starwars/images/f/f0/Phantom_Menace_scrapbook.jpg"
                     },
                     {

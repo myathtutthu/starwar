@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { fetchMovies } from "../../../actions/newMovieActions";
 import "./newMovies.css";
 import "../../../assets/loading.css";
-import jsonData from '../../../assets/images';
+import jsonData from "../../../assets/images";
 
 class List extends React.Component {
   componentWillMount() {
@@ -14,18 +14,19 @@ class List extends React.Component {
   render() {
     const moviesOld = this.props.newMovies;
     const movies = [];
-    {moviesOld.map((movie) => {
-      let str=movie.url.substring(27);
-      movie.urlID=str.replace('/','') ;
-      movies.push(movie);
-
-    })}
+    {
+      moviesOld.map(movie => {
+        let str = movie.url.substring(27);
+        movie.urlID = str.replace("/", "");
+        movies.push(movie);
+      });
+    }
     console.log(movies);
     const fullyLoaded = this.props.fullyLoaded;
     console.log(fullyLoaded);
     return (
       <section>
-        <div className={fullyLoaded==true ? 'hide' : 'loadig'}>
+        <div className={fullyLoaded == true ? "hide" : "loading"}>
           <div className="spinner-wrapper">
             <span className="spinner-text">LOADING</span>
             <span className="spinner" />
@@ -38,11 +39,15 @@ class List extends React.Component {
         <div className="newMovies">
           {movies.map((movie, index) => {
             return (
-              <Link to={`/movie/${movies[index].urlID}`} key={index} className="movieLink">
+              <Link
+                to={`/movie/${movies[index].urlID}`}
+                key={index}
+                className="movieLink"
+              >
                 <img
                   src={jsonData.image[index].url}
                   alt={`${movies[index].title} poster`}
-                  className="imgResponsive"
+                  className="imgStyle"
                 />
                 <div className="movieInfo">
                   <h3>{movies[index].title}</h3>

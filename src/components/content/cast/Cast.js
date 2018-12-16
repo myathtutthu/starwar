@@ -40,7 +40,7 @@ class Cast extends React.Component {
     console.log(casts);
     return (
       <React.Fragment>
-         <div className={fullyLoaded==true ? 'hide' : 'loadig'}>
+         <div className={fullyLoaded==true ? 'hide' : 'loading'}>
           <div className="spinner-wrapper">
             <span className="spinner-text">LOADING</span>
             <span className="spinner" />

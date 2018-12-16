@@ -9,27 +9,25 @@ import "./newMovies.css";
 class NewMovies extends React.Component {
   render() {
     return (
-      <section>
-        <Router>
-          <React.Fragment>
-            <Route
-              exact
-              path="/"
-              component={props => <List {...props} name="movies" />}
-            />
-            <Route
-              exact
-              path={"/movie/:id"}
-              component={props => <Detail {...props} name="movieDetail" />}
-            />
-            <Route
-              exact
-              path="/cast"
-              component={props => <Cast {...props} name="castList" />}
-            />
-          </React.Fragment>
-        </Router>
-      </section>
+      <Router>
+        <React.Fragment>
+          <Route
+            exact
+            path="/"
+            component={props => <List {...props} name="movies" />}
+          />
+          <Route
+            exact
+            path={"/movie/:id"}
+            component={props => <Detail {...props} name="movieDetail" />}
+          />
+          <Route
+            exact
+            path="/cast"
+            component={props => <Cast {...props} name="castList" />}
+          />
+        </React.Fragment>
+      </Router>
     );
   }
 }
