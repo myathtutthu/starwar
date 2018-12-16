@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchDetailMovies } from "../actions/newDetailMovieAction";
+import { fetchDetailMovies } from "../../../actions/newDetailMovieAction";
 import { connect } from "react-redux";
 import './movie.css';
 

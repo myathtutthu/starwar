@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchMovies } from "../actions/newMovieActions";
 import Detail from "../detail/Detail";
-import List from "./List";
+import Cast from "../cast/Cast";
+import List from "./List.js";
 import "./newMovies.css";
 
 class NewMovies extends React.Component {
@@ -21,6 +21,11 @@ class NewMovies extends React.Component {
               exact
               path={"/movie/:id"}
               component={props => <Detail {...props} name="movieDetail" />}
+            />
+            <Route
+              exact
+              path="/cast"
+              component={props => <Cast {...props} name="castList" />}
             />
           </React.Fragment>
         </Router>
