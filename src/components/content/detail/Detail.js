@@ -4,11 +4,12 @@ import { connect } from "react-redux";
 import './movie.css';
 
  class Detail extends React.Component {
-  
+  constructor(props) {
+    super(props);
+  }
   
     componentWillMount() {
         const id = window.location.pathname.substring(7);
-        console.log(id);
         this.props.fetchDetailMovies(id);
       }
 

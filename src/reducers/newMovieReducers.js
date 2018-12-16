@@ -4,9 +4,11 @@ const initialState = {
     casts: [],
     currentMovie: {},
     fullyLoaded: false,
+    castPage: 1,
 
   };
   export default function(state = initialState, action) {
+    console.log(state.castPage + 'state');
     switch (action.type) {
       case FETCH_NEW_MOVIE:
         return {
@@ -22,8 +24,9 @@ const initialState = {
         case FETCH_CAST_LIST:
         return {
           ...state,
-          casts: action.payload,
-          fullyLoaded : true
+          casts:  state.casts.concat(action.payload),
+          fullyLoaded : true,
+          castPage:state.castPage+1
         };
       default:
         return state;

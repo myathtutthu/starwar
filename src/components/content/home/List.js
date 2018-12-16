@@ -11,7 +11,15 @@ class List extends React.Component {
   }
 
   render() {
-    const movies = this.props.newMovies;
+    const moviesOld = this.props.newMovies;
+    const movies = [];
+    {moviesOld.map((movie) => {
+      let str=movie.url.substring(27);
+      movie.urlID=str.replace('/','') ;
+      movies.push(movie);
+
+    })}
+    console.log(movies);
     const fullyLoaded = this.props.fullyLoaded;
     console.log(fullyLoaded);
     return (
@@ -29,7 +37,7 @@ class List extends React.Component {
         <div className="newMovies">
           {movies.map((movie, index) => {
             return (
-              <Link to={`/movie/${index}`} key={index} className="movieLink">
+              <Link to={`/movie/${movies[index].urlID}`} key={index} className="movieLink">
                 <img
                   src="http://via.placeholder.com/300x450"
                   alt={`${movies[index].title} poster`}

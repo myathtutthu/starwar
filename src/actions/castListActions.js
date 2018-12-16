@@ -1,8 +1,8 @@
 import { FETCH_CAST_LIST } from './types';
 
-export const fetchCasts = () => dispatch => {
+export const fetchCasts = (page) => dispatch => {
 
-fetch("https://swapi.co/api/people/")
+fetch(`https://swapi.co/api/people/?page=${page}`)
     .then(res => res.json())
     .then(casts =>
       dispatch({
