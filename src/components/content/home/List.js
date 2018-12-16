@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchMovies } from "../../../actions/newMovieActions";
 import "./newMovies.css";
+import "../../../assets/loading.css";
 
 class List extends React.Component {
   componentWillMount() {
@@ -15,6 +16,12 @@ class List extends React.Component {
     console.log(fullyLoaded);
     return (
       <section>
+        <div className={fullyLoaded==true ? 'hide' : 'loadig'}>
+          <div className="spinner-wrapper">
+            <span className="spinner-text">LOADING</span>
+            <span className="spinner" />
+          </div>
+        </div>
         <h3>Starwar Movies Series</h3>
         <Link to={`/cast`} key="cast" className="movieLink">
           <p>Cast List</p>
